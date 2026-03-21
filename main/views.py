@@ -30,7 +30,7 @@ class CatalogView(TemplateView):
         'color': lambda queryset, value: queryset.filter(color_iexact=value),
         'min_price': lambda queryset, value: queryset.filter(price_gte=value),
         'max_price': lambda queryset, value: queryset.filter(price_lte=value),
-        'size': lambda queryset, value: queryset.filter(product_size__size__name=value),
+        'size': lambda queryset, value: queryset.filter(product_sizes__size__name=value),
     }
 
     def get_context_data(self, **kwargs):
@@ -47,7 +47,7 @@ class CatalogView(TemplateView):
         query = self.request.GET.get('q')
         if query:
             products = products.filter(
-                Q(name_icontains=query) | Q(description_icontains=query)
+                Q(name__icontains=query) | Q(description__icontains=query)
             )
 
         filter_params = {}
