@@ -20,9 +20,9 @@ def register(request):
             user = form.save()
             login(request, user, backend='django.contrib.auth.backends.ModelBackend')
             return redirect('main:index')
-        else:
-            form = CustomUserCreationForm()
-        return render(request, 'users/register.html', {'form': form})
+    else:
+        form = CustomUserCreationForm()
+    return render(request, 'users/register.html', {'form': form})
 
 
 def login_view(request):
@@ -32,9 +32,9 @@ def login_view(request):
             user = form.get_user()
             login(request, user, backend='django.contrib.auth.backends.ModelBackend')
             return redirect('main:index')
-        else:
-            form = CustomUserLoginForm()
-            return render(request, 'users/login.html', {'form': form})
+    else:
+        form = CustomUserLoginForm()
+    return render(request, 'users/login.html', {'form': form})
 
 
 @login_required(login_url='/users/login')
