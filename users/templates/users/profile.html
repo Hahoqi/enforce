@@ -81,7 +81,7 @@
                             <p class="text-sm text-gray-700">Order #{{ latest_order.id }}</p>
                             <p class="text-sm text-gray-700">Placed on: {{ latest_order.created_at|date:"F d, Y" }}</p>
                             <p class="text-sm text-gray-700">Status: {{ latest_order.get_status_display }}</p>
-                            <p class="text-sm text-gray-700">Total: €{{ latest_order.get_discounted_total }}</p>
+                            <p class="text-sm text-gray-700">Total: ${{ latest_order.get_discounted_total }}</p>
                             <button 
                                 hx-get="{% url 'users:order_history' %}" 
                                 hx-target="#main-content" 
@@ -149,7 +149,7 @@
                                     {% endif %}
                                 </div>
                                 <h3 class="text-sm font-semibold text-gray-900">{{ product.name }}</h3>
-                                <p class="text-sm text-gray-700">€{{ product.price }}</p>
+                                <p class="text-sm text-gray-700">${{ product.price }}</p>
                                 <a 
                                     href="{% url 'main:product_detail' product.slug %}" 
                                     hx-get="{% url 'main:product_detail' product.slug %}" 
