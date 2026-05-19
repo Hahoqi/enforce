@@ -135,7 +135,7 @@
                    HOME
                 </a>
                 {% for category in categories %}
-                <a href="{% url 'main:catalog' category.slug %}" 
+                <a href="{% url 'main:catalog' category_slug=category.slug %}" 
                    hx-get="{% url 'main:catalog' category.slug %}" 
                    hx-target="#main-content" 
                    hx-push-url="true"
