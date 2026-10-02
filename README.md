@@ -80,3 +80,6 @@ DATABASES = {
 # Payment system
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
 ```
+
+## 📄 License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
